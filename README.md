@@ -1,65 +1,65 @@
 # Blazor Starter Application
 
-This template contains an example .NET 8 [Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/?view=aspnetcore-6.0#blazor-webassembly) client application, a .NET 8 C# [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview), and a C# class library with shared code.
+このテンプレートには、.NET 8 [Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/?view=aspnetcore-6.0#blazor-webassembly) クライアントアプリケーション、.NET 8 C# [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)、および共有コードを含む C# クラスライブラリの例が含まれています。
 
-## Getting Started
+## はじめに
 
-1. Create a repository from the [GitHub template](https://docs.github.com/en/enterprise/2.22/user/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) and then clone it locally to your machine.
+1. [GitHub template](https://docs.github.com/en/enterprise/2.22/user/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) からリポジトリを作成し、あなたのマシンのローカルにクローンします。
 
-1. In the **Api** folder, copy `local.settings.example.json` to `local.settings.json`
+1. **Api** フォルダで `local.settings.example.json` を `local.settings.json` にコピーします。
 
-1. Continue using either Visual Studio or Visual Studio Code.
+1. Visual Studio または Visual Studio Code のいずれかを使用して続行します。
 
 ### Visual Studio 2022
 
-Once you clone the project, open the solution in the latest release of [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) with the Azure workload installed, and follow these steps:
+プロジェクトをクローンしたら、Azure ワークロードがインストールされた最新リリースの [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) でソリューションを開き、以下の手順に従います。
 
-1. Right-click on the solution and select **Configure Startup Projects...**.
+1. ソリューションを右クリックし **Configure Startup Projects...** を選択します。
 
-1. Select **Multiple startup projects** and set the following actions for each project:
+1. **Multiple startup projects** を選択し、各プロジェクトに以下のアクションを選択します。
     - *Api* - **Start**
     - *Client* - **Start**
     - *Shared* - None
 
-1. Press **F5** to launch both the client application and the Functions API app.
+1. **F5** キーを押して、クライアントアプリと Functions API アプリの両方を起動します。
 
-### Visual Studio Code with Azure Static Web Apps CLI for a better development experience (Optional)
+### Visual Studio Code と Azure Static Web Apps CLI による優れた開発体験（オプション）
 
-1. Install (or update) the [Azure Static Web Apps CLI](https://www.npmjs.com/package/@azure/static-web-apps-cli) and [Azure Functions Core Tools CLI](https://www.npmjs.com/package/azure-functions-core-tools).
+1. [Azure Static Web Apps CLI](https://www.npmjs.com/package/@azure/static-web-apps-cli) と [Azure Functions Core Tools CLI](https://www.npmjs.com/package/azure-functions-core-tools) をインストール（または更新）します。
 
-1. Open the folder in Visual Studio Code.
+1. Visual Studio Code でフォルダを開きます。
 
-1. Delete file `Client/wwwroot/appsettings.Development.json`
+1. `Client/wwwroot/appsettings.Development.json` を削除します。
 
-1. In the VS Code terminal, run the following command to start the Static Web Apps CLI, along with the Blazor WebAssembly client application and the Functions API app:
+1. Visual Studio Code のターミナルで以下のコマンドを実行し、Static Web Apps CLI を Blazor WebAssembly クライアントアプリケーションと Functions API アプリと共に起動します。
 
-    In the Client folder, run:
+    Client フォルダで以下を実行
     ```bash
     dotnet run
     ```
 
-    In the API folder, run:
+    Api フォルダで以下を実行
     ```bash
     func start
     ```
 
-    In another terminal, run:
+    上記とは別のターミナルで以下を実行
     ```bash
     swa start http://localhost:5000 --api-location http://localhost:7071
     ```
 
-    The Static Web Apps CLI (`swa`) starts a proxy on port 4280 that will forward static site requests to the Blazor server on port 5000 and requests to the `/api` endpoint to the Functions server. 
+    Static Web Apps CLI (`swa`) はポート 4280 でプロキシを起動し、静的サイトのリクエストをポート 5000 の Blazor サーバーに、`/api` エンドポイントへのリクエストを Functions サーバーに転送します。
 
-1. Open a browser and navigate to the Static Web Apps CLI's address at `http://localhost:4280`. You'll be able to access both the client application and the Functions API app in this single address. When you navigate to the "Fetch Data" page, you'll see the data returned by the Functions API app.
+1. ブラウザを開き、Static Web Apps CLI のアドレス（`http://localhost:4280`）に移動します。このアドレスから、クライアント・アプリケーションと Functions API アプリの両方にアクセスできます。Fetch Data ページに移動すると、Functions API アプリから返されたデータが表示されます。
 
-1. Enter Ctrl-C to stop the Static Web Apps CLI.
+1. Static Web Apps CLI を停止するには Ctrl-C を入力します。
 
-## Template Structure
+## テンプレートの構成
 
-- **Client**: The Blazor WebAssembly sample application
-- **Api**: A C# Azure Functions API, which the Blazor application will call
-- **Shared**: A C# class library with a shared data model between the Blazor and Functions application
+- **Client**: Blazor WebAssembly サンプルアプリケーション
+- **Api**: Blazor アプリケーションが呼び出す C# Azure Functions API
+- **Shared**: Blazor と Functions アプリケーション間でデータモデルを共有する C# クラスライブラリ
 
-## Deploy to Azure Static Web Apps
+## Azure Static Web Apps へのデプロイ
 
-This application can be deployed to [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps), to learn how, check out [our quickstart guide](https://aka.ms/blazor-swa/quickstart).
+このアプリケーションは [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps) にデプロイすることができます。その方法については、[クイックスタートガイド](https://aka.ms/blazor-swa/quickstart)をご覧ください。
